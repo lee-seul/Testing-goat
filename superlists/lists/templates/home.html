@@ -6,11 +6,13 @@
 
 <body>
   <h1>Your To-Do list</h1>
-  <input id="id_new_item" placeholder='작업 아이템 입력' />
+  <form method="POST">
+    {% csrf_token %}
+    <input id="id_new_item" placeholder='작업 아이템 입력' name="item_text" />
+  </form>
   <table id="id_list_table">
+    <tr><td>{{ new_item_text  }}</td></tr>
   </table>
 </body>
-
 </html>
-
 

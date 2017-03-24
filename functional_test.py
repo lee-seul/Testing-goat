@@ -46,13 +46,6 @@ class NewVisitorTest(unittest.TestCase):
                 만들기')
         self.check_for_row_in_list_table('1: 공작깃털 사기')
 
-
-        table = self.browser.find_element_by_id('id_list_table')
-        rows = table.find_elements_by_tag_name('tr')
-        self.assertIn('1: 공작깃털 사기', [row.text for row in rows])
-        self.assertIn('2: 공작깃털을 이용해서 그물 만들기', 
-                [row.text for row in rows])
-        
         self.fail('Finish the test!')
 
 

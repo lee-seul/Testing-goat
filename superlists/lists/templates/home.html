@@ -11,7 +11,9 @@
     <input id="id_new_item" placeholder='작업 아이템 입력' name="item_text" />
   </form>
   <table id="id_list_table">
-    <tr><td>{{ new_item_text  }}</td></tr>
+    {% for item in items %}
+    <tr><td>{{ forloop.counter }}: {{ item.text  }}</td></tr>
+    {% endfor %}
   </table>
 </body>
 </html>

@@ -3,8 +3,19 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.expected_conditions import staleness_of
+from contextlib import contextmanager
+
 
 class NewVisitorTest(LiveServerTestCase):
+
+    @contextmanager
+    def wait_for_page_load(self, timeout=30):
+        old_page = self.browser.find_element_by_tag_name('html')
+        yield WebDriverWait(self.browser, timeout).until(
+                staleness_of(old_page)
+                )
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -33,15 +44,47 @@ class NewVisitorTest(LiveServerTestCase):
 
         inputbox.send_keys('공작깃털 사기')
         inputbox.send_keys(Keys.ENTER)
-        self.check_for_row_in_list_table('1: 공작깃털 사기')
+        
+        edith_list_url = self.browser.current_url
+        self.assertRegex(edith_list_url, '/lists/.+')
+
+        with self.wait_for_page_load(timeout=10):
+            self.check_for_row_in_list_table('1: 공작깃털 사기')
 
         inputbox = self.browser.find_element_by_id('id_new_item')
         inputbox.send_keys('공작깃털을 이용해서 그물 만들기')
         inputbox.send_keys(Keys.ENTER)
 
-        self.check_for_row_in_list_table(
-                '2:공작깃털을 이용해서 그물 만들기')
-        self.check_for_row_in_list_table('1: 공작깃털 사기')
+        with self.wait_for_page_load(timeout=10):
+            self.check_for_row_in_list_table(
+                '2: 공작깃털을 이용해서 그물 만들기')
+            self.check_for_row_in_list_table('1: 공작깃털 사기')
+
+        ## 새로운 사용자인 프란시스가 사이트에 접속한다.
+
+        ## 새로운 브라우저 세션을 이용해서 에디스의 정보가
+        ## 쿠키를 통해 유입되는 것을 방지한다. 
+
+        self.browser.quit()
+        self.browser = webdriver.Firefox()
+
+        self.browser.get(self.live_server_url)
+        page_text = self.browser.find_element_by_tag_name('body').text
+        self.assertNotIn('공작깃털 사기', page_text)
+        self.assertNotIn('그물 만들기', page_text)
+
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('우유 사기')
+        inputbox.send_keys(Keys.ENTER)
+
+        francis_list_url = self.browser.current_url
+        self.assertRegex(francis_list_url, '/lists/.+')
+        self.assertNotEqual(francis_list_url, edith_list_url)
+
+        page_text = self.browser.find_elements_by_tag_name('body').text
+        self.assertNotIn('공작깃털 사기', page_text)
+        self.assertIn('우유 사기', page_text)
+
 
         self.fail('Finish the test!')
 

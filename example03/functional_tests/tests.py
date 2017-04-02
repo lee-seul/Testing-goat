@@ -8,6 +8,8 @@ from selenium.webdriver.support.expected_conditions import staleness_of
 from selenium.webdriver.common.keys import Keys
 from contextlib import contextmanager
 import unittest
+import time
+
 
 class NewVisitorTest(LiveServerTestCase):
 
@@ -54,11 +56,12 @@ class NewVisitorTest(LiveServerTestCase):
         # 엔터키를 치면 페이지가 갱신되고 작업 목록에
         # "1: 공작깃털 사기" 아이템이 추가된다
         inputbox.send_keys(Keys.ENTER)
-    
+   
+        time.sleep(1)
         edith_list_url = self.browser.current_url
-#        self.assertRegex(edith_list_url, '/lists/.+')        
-        with self.wait_for_page_load(timeout=10):
-            self.check_for_row_in_list_table('1: 공작깃털 사기')
+        self.assertRegex(edith_list_url, '/lists/.+')        
+#        with self.wait_for_page_load(timeout=5):
+        self.check_for_row_in_list_table('1: 공작깃털 사기')
     
         # 추가 아이템을 입력할 수 있는 여분의 텍스트 상자가 존재한다
         # 다시 "공작깃털을 이용해서 그물 만들기"라고 입력한다 
@@ -93,8 +96,10 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
 #        with self.wait_for_page_load(timeout=10):
+       
+        time.sleep(1) 
         francis_list_url = self.browser.current_url
-#        self.assertRegex(francis_list_url, '/lists/.+')
+        self.assertRegex(francis_list_url, '/lists/.+')
         self.assertNotEqual(francis_list_url, edith_list_url)
 
         # 에디스가 입력한 흔적이 없다는 것을 다시 확인한다.

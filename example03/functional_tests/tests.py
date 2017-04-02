@@ -3,20 +3,20 @@
 
 from django.test import LiveServerTestCase
 from selenium import webdriver
-# from selenium.webdriver.support.ui import WebDriverWait
-# from selenium.webdriver.support.expected_conditions import staleness_of
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.expected_conditions import staleness_of
 from selenium.webdriver.common.keys import Keys
-# from contextlib import contextmanager
+from contextlib import contextmanager
 import unittest
 
 class NewVisitorTest(LiveServerTestCase):
 
-#    @contextmanager
-#    def wait_for_page_load(self, timeout=30):
-#        old_page = self.browser.find_element_by_tag_name('html')
-#        yield WebDriverWait(self.browser, timeout).until(
-#                            staleness_of(old_page)
-#                            )
+    @contextmanager
+    def wait_for_page_load(self, timeout=30):
+        old_page = self.browser.find_element_by_tag_name('html')
+        yield WebDriverWait(self.browser, timeout).until(
+                            staleness_of(old_page)
+                            )
 
     def setUp(self):
         self.browser = webdriver.Firefox()
@@ -43,9 +43,9 @@ class NewVisitorTest(LiveServerTestCase):
         # 그녀는 바로 작업을 추가하기로 한다
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
-                inputbox.get_attribute('placeholder'),
-                '작업 아이템 입력'
-                )
+                         inputbox.get_attribute('placeholder'),
+                         '작업 아이템 입력'
+                         )
 
         # "공작깃털 사기"라고 텍스트 상자에 입력한다.
         # (에디스의 취미는 날치 잡이용 그물을 만드는 것이다)
@@ -56,10 +56,10 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
     
         edith_list_url = self.browser.current_url
-#        self.assertRegex(edith_list_url, '/lists/.+')
-#        with self.wait_for_page_load(timeout=10):
-        self.check_for_row_in_list_table('1: 공작깃털 사기')
-
+#        self.assertRegex(edith_list_url, '/lists/.+')        
+        with self.wait_for_page_load(timeout=10):
+            self.check_for_row_in_list_table('1: 공작깃털 사기')
+    
         # 추가 아이템을 입력할 수 있는 여분의 텍스트 상자가 존재한다
         # 다시 "공작깃털을 이용해서 그물 만들기"라고 입력한다 
         # (에디스는 매우 체계적인 사람이다)

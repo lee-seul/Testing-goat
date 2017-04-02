@@ -895,3 +895,42 @@ See /usr/include/servers/bootstrap_defs.h for the error codes.
 1491110576958	Marionette	INFO	New connections will no longer be accepted
 [Child 6717] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
 [Child 6717] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1491112841540	geckodriver	INFO	Listening on 127.0.0.1:53450
+1491112842588	mozprofile::profile	INFO	Using profile path /var/folders/0l/011nyqz92cj_pk0mk4n727g00000gn/T/rust_mozprofile.7BKrWtPHp8ru
+1491112842589	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args []
+1491112842592	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53459
+1491112843187	Marionette	INFO	Listening on port 53459
+1491112843456	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-04-02 15:00:44.656 plugin-container[10410:486336] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9933, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-04-02 15:00:44.659 plugin-container[10410:486336] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9c03, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1491112844751	Marionette	INFO	New connections will no longer be accepted
+[Child 10410] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 10410] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1491112865505	geckodriver	INFO	Listening on 127.0.0.1:53488
+1491112866551	mozprofile::profile	INFO	Using profile path /var/folders/0l/011nyqz92cj_pk0mk4n727g00000gn/T/rust_mozprofile.gcrompro8jxD
+1491112866552	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args []
+1491112866557	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53498
+1491112867139	Marionette	INFO	Listening on port 53498
+1491112867399	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-04-02 15:01:08.578 plugin-container[10527:487585] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x993b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-04-02 15:01:08.580 plugin-container[10527:487585] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9c03, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1491112868667	Marionette	INFO	New connections will no longer be accepted
+[Child 10527] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 10527] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+1491113991974	geckodriver	INFO	Listening on 127.0.0.1:53651
+1491113993019	mozprofile::profile	INFO	Using profile path /var/folders/0l/011nyqz92cj_pk0mk4n727g00000gn/T/rust_mozprofile.1wSmd4kWPAjS
+1491113993020	geckodriver::marionette	INFO	Starting browser /Applications/Firefox.app/Contents/MacOS/firefox-bin with args []
+1491113993024	geckodriver::marionette	INFO	Connecting to Marionette on localhost:53660
+1491113993625	Marionette	INFO	Listening on port 53660
+1491113993891	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-04-02 15:19:55.092 plugin-container[10840:505697] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x993b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-04-02 15:19:55.094 plugin-container[10840:505697] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9c03, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+1491113998275	Marionette	INFO	New connections will no longer be accepted
+[Child 10840] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
+[Child 10840] ###!!! ABORT: Aborting on channel error.: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/glue/MessageChannel.cpp, line 2143
